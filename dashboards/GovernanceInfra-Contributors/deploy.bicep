@@ -25,7 +25,6 @@ module appServicePlan '../../CARML/modules/Microsoft.Web/serverfarms/deploy.bice
     tags: {
       version: version
     }
-    serverOS: 'Linux'
   }
 }
 
@@ -45,7 +44,7 @@ module appService '../../CARML/modules/Microsoft.Web/sites/deploy.bicep' = {
   name: '${name}-cco-fa'
   params: {
     location: location
-    kind: 'functionapp,linux'
+    kind: 'functionapp'
     name: '${name}-cco-fa'
     serverFarmResourceId: appServicePlan.outputs.resourceId
     systemAssignedIdentity: true
