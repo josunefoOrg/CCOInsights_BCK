@@ -115,13 +115,13 @@ jobs:
           fetch-depth: 0
 
       - name: Load Build from Artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: publish
           path: ${{ env.publishFolder }}
 
       - name: Azure Login
-        uses: Azure/login@v1
+        uses: Azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           enable-AzPSSession: true
@@ -154,7 +154,7 @@ jobs:
           cd publish && zip -r ../publish.zip . && cd -
 
       - name: "Deploy code"
-        uses: Azure/CLI@v1
+        uses: Azure/CLI@v2
         env:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
         with:
