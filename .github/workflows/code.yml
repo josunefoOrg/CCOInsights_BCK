@@ -95,9 +95,9 @@ jobs:
         if:  ${{ github.event_name != 'pull_request'}}
         run: dotnet publish -c Release -o ${{ env.publishFolder }}
       
-      - name: Save Logs on Artifacts
+      - name: Publish Artifacts
         if:  ${{ github.event_name != 'pull_request'}}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: publish
           path: |
